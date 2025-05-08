@@ -1,0 +1,44 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+:root {
+  --c-theme-primary: #008ffd;
+  --c-theme-primary-accent: #cbe8ff;
+  --c-bg-primary: #d6dae0;
+  --c-bg-secondary: #eaebec;
+  --c-bg-tertiary: #fdfdfd;
+  --c-text-primary: #242424;
+  --c-text-secondary: #999fa6;
+}
+
+body {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.container {
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+figcaption {
+  max-width: 400px;
+  max-height: 500px;
+  border-radius: 8px;
+}
+img {
+  width: 400px;
+  height: 400px;
+}

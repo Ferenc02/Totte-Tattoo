@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --footer-background-color: #333;
+  --footer-text-color: #fefefe;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  color: var(--footer-text-color);
+  min-height: 2rem;
+  background-color: var(--footer-background-color);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+footer p {
+  margin: 0;
+}
+footer a {
+  margin: 0;
+  color: var(--footer-text-color);
+  text-decoration-thickness: 1px;
+}
+footer p:nth-child(2) {
+  position: absolute;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: auto;
+  width: fit-content;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  background-color: rgb(226, 211, 189);
+  width: 100%;
+  gap: 1rem;
+}
+
+header nav ul li {
+  list-style: none;
+  margin: 1rem;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  width: 100%;
+}
+
+.active {
+  color: black;
+  text-decoration: underline;
+}
+
+.logo {
+  color: rgb(26, 194, 169);
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
