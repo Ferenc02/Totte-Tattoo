@@ -5,6 +5,6 @@ const bookingRouter = express.Router();
 
 bookingRouter.route("/").get(listAllBookings);
 
-bookingRouter.get("/:id").put();
+// bookingRouter.get("/:id").put();
 
 export default bookingRouter;

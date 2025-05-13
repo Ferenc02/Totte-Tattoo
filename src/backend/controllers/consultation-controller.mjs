@@ -1,7 +1,7 @@
-import { appErrorAsync } from "../utilities/appErrorAsync.mjs";
+import { catchErrorAsync } from "../utilities/catchErrorAsync.mjs";
 
-export const getAll = appErrorAsync(async (res, req) => {});
+// export const getAll = catchErrorAsync(async (res, req) => {});
 
-export const add = appErrorAsync(async (res, req) => {});
+// export const add = catchErrorAsync(async (res, req) => {});
 
-export const update = appErrorAsync(async (res, req) => {});
+// export const update = catchErrorAsync(async (res, req) => {});
