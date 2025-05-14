@@ -92,7 +92,7 @@
 
 .datepicker {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -107,7 +107,7 @@
 	gap: 2rem;
 	flex-wrap: wrap;
 	button {
-		width: 20px;
+		width: 150px;
 		height: 2rem;
 	}
 }
@@ -121,7 +121,7 @@ button {
 
 .datepicker {
 	width: 95%;
-	max-width: 400px;
+	max-width: 100%;
 	background-color: var(--c-bg-tertiary);
 	border-radius: 10px;
 	box-shadow: 0 0 2px 0 rgba(#000, 0.2), 0 5px 10px 0 rgba(#000, 0.1);
@@ -178,8 +178,11 @@ button {
 	grid-template-columns: repeat(7, 1fr);
 	grid-row-gap: 1rem;
 	padding-right: 150px;
+	align-self: flex-end;
 }
-
+.calend {
+	align-self: flex-start;
+}
 .day,
 .date {
 	justify-self: center;
