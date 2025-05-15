@@ -1,42 +1,28 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const ConsultationSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: [true, "Ett förnamn är nödvändigt för bokning."],
+    required: [true, 'Ett förnamn är nödvändigt för konsultation.'],
   },
   lastName: {
     type: String,
-    required: [true, "Ett efternamn är nödvändigt för bokning."],
+    required: [true, 'Ett efternamn är nödvändigt för konsultation.'],
   },
-
   email: {
     type: String,
-    required: [true, "En emailadress är nödvändigt för bokning."],
+    required: [true, 'En emailadress är nödvändigt för konsultation.'],
   },
   number: {
     type: String,
-    required: [true, "Ett telefonnummer är nödvändigt för bokning."],
+    required: [true, 'Ett telefonnummer är nödvändigt för konsultation.'],
   },
-
-  date: {
-    type: String,
-    required: [true, "Ett datum är nödvändigt för bokning."],
-  },
-
-  time: {
-    type: String,
-    required: [true, "En tid är nödvändigt för bokning."],
-  },
-
-  gdpr: {
-    type: String,
-    required: [true, "Att acceptera GDPR är nödvändigt för bokning."],
-  },
-
   message: {
+    type: String,
+  },
+  Image: {
     type: String,
   },
 });
 
-export default mongoose.model("Consulation", BookingSchema);
+export default mongoose.model('Consultation', ConsultationSchema);

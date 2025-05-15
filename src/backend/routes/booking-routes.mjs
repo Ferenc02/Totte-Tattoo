@@ -1,10 +1,10 @@
 import express from "express";
-import { listAllBookings } from "../controllers/booking-controller.mjs";
+import { addBooking, listAllBookings } from "../controllers/booking-controller.mjs";
 
 const bookingRouter = express.Router();
 
-bookingRouter.route("/").get(listAllBookings);
+bookingRouter.route("/").get(listAllBookings).post(addBooking);
 
-bookingRouter.get("/:id").put();
+// bookingRouter.get("/:id").put();
 
 export default bookingRouter;
