@@ -17,7 +17,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/v1/booking', upload.single('file'), bookingRouter);
+app.use('/api/v1/booking', upload.array('file'), bookingRouter);
 app.use('/api/v1/consultation', consultationRouter);
 // app.use("/api/v1/media", mediaRouter);
 
