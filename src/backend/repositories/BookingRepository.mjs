@@ -55,4 +55,10 @@ export default class BookingRepository {
 		console.log("Bokning borttagen:", result);
 		return result;
 	}
-}
+
+async clear() {
+      await Booking.deleteMany();
+    }
+
+  }
+
