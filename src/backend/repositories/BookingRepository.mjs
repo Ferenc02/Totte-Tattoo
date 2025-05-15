@@ -9,7 +9,7 @@ export default class BookingRepository {
 	}
 
 	async add(booking) {
-		const { firstName, lastName, email, number, message, image } = booking;
+		const { firstName, lastName, email, number, message, image, date, time, gdpr } = booking;
 		console.log("BOKNING:", { firstName, lastName, email, number, date, time, gdpr, message, image });
 		
 		const result = await Booking.create({
@@ -17,9 +17,9 @@ export default class BookingRepository {
 			lastName,
 			email,
 			number,
-      date,
-      time,
-      gdpr,
+			date,
+			time,
+			gdpr,
 			message,
 			image,
 		});
@@ -36,16 +36,32 @@ export default class BookingRepository {
 	}
 
 	async update(data, id) {
-		const result = await Booking.findByIdAndUpdate(id, data, { new: true });
-		console.log("Uppdaterad bokning:", result);
+		// PUT - Uppdaterar hela bokningen
+		// Kontrollera att alla obligatoriska fält finns med
+		const requiredFields = ['firstName', 'lastName', 'email'];
+		const missingFields = requiredFields.filter(field => !data[field]);
+		
+		if (missingFields.length > 0) {
+			throw new AppError(`Saknar obligatoriska fält: ${missingFields.join(', ')}`, 400);
+		}
+
+		const result = await Booking.findByIdAndUpdate(
+			id, 
+			data,
+			{ 
+				new: true,
+				runValidators: true
+			}
+		);
+
+		if (!result) {
+			throw new AppError(`Vi kan inte hitta bokningen med id: ${id}`, 404);
+		}
+
+		console.log("Bokning helt uppdaterad:", result);
 		return result;
 	}
 
-	async updatePartOfBooking(data, id) {
-		const result = await Booking.findByIdAndUpdate(id, data, { new: true });
-		console.log("Delvis uppdaterad bokning:", result);
-		return result;
-	}
 
 	async delete(id) {
 		const result = await Booking.findByIdAndDelete(id);
@@ -56,9 +72,5 @@ export default class BookingRepository {
 		return result;
 	}
 
-async clear() {
-      await Booking.deleteMany();
-    }
-
-  }
+}
 

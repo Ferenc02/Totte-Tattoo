@@ -4,7 +4,6 @@ import {
   listAllBookings, 
   getBooking, 
   updateBooking, 
-  updatePartOfBooking, 
   deleteBooking 
 } from "../controllers/booking-controller.mjs";
 
@@ -17,7 +16,7 @@ bookingRouter.route("/")
 bookingRouter.route("/:id")
   .get(getBooking)
   .put(updateBooking)
-  .patch(updatePartOfBooking)
   .delete(deleteBooking);
+  
 
 export default bookingRouter;
