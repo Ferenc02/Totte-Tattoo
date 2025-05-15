@@ -20,13 +20,14 @@ app.use('/api/v1/booking', bookingRouter);
 app.use('/api/v1/consultation', consultationRouter);
 // app.use("/api/v1/media", mediaRouter);
 
-// app.all("*", (req, res, next) => {
-//   next(
-//     new AppError(
-//       `Vi kan tyvärr inte hitta resursen som du söker ${req.originalUrl}`,
-//       404
-//     )
-//   );
-// });
+app.all(/(.*)/, (req, res, next) => {
+  next(
+    new AppError(
+      `Vi kan tyvärr inte hitta resursen som du söker ${req.originalUrl}`,
+      404
+    )
+  );
+});
+
 app.use(errorHandler)
 export { app };
