@@ -31,3 +31,7 @@ export const deleteBooking = catchErrorAsync(async (req, res) => {
   res.status(204).json({success: true, data: null });
 });
 
+export const clearBookings = catchErrorAsync(async (req, res) => {
+  await new BookingsRepository().clear();
+  res.status(204).end();
+});
