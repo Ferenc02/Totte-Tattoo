@@ -28,5 +28,5 @@ app.use('/api/v1/consultation', consultationRouter);
 //     )
 //   );
 // });
-
+app.use(errorHandler)
 export { app };
