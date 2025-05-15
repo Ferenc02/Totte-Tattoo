@@ -20,6 +20,9 @@ const ConsultationSchema = new mongoose.Schema({
   message: {
     type: String,
   },
+  Image: {
+    type: String,
+  },
 });
 
 export default mongoose.model('Consultation', ConsultationSchema);
