@@ -7,6 +7,7 @@ import consultationRouter from './routes/consultation-routes.mjs';
 import bookingRouter from './routes/booking-routes.mjs';
 import errorHandler from "./middleware/errorHandler.mjs";
 import AppError from "./models/AppError.mjs";
+import { upload } from './utilities/storage.mjs';
 
 dotenv.config({ path: './config/config.env' });
 
@@ -16,7 +17,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/v1/booking', bookingRouter);
+app.use('/api/v1/booking', upload.single('file'), bookingRouter);
 app.use('/api/v1/consultation', consultationRouter);
 // app.use("/api/v1/media", mediaRouter);
 
