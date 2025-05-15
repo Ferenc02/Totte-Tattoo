@@ -16,7 +16,7 @@ bookingRouter.route("/")
 bookingRouter.route("/:id")
   .get(getBooking)
   .put(updateBooking)
-  .delete(deleteBooking);
-  
+  .delete(deleteBooking)
+  .patch(updateBooking);
 
 export default bookingRouter;
