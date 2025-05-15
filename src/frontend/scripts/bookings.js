@@ -6,15 +6,15 @@ const initApp = () => {
 	console.log(form);
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
 	e.preventDefault();
 	console.log(e.target);
 	const formData = new FormData(e.target);
 	const data = Object.fromEntries(formData.entries());
-	console.log(formData);
-	console.log(data);
+	//	console.log(formData);
+	//console.log(data);
 
-	container.innerHTML = bookingDone(data);
+	container.innerHTML = await bookingDone(data);
 };
 
 form.addEventListener('submit', handleSubmit);
