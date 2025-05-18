@@ -37,6 +37,10 @@ const BookingSchema = new mongoose.Schema({
   message: {
     type: String,
   },
+
+  images: {
+    type: [String],
+  },
 });
 
 export default mongoose.model("Booking", BookingSchema);

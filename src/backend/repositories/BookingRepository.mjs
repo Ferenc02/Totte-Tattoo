@@ -7,11 +7,10 @@ export default class BookingRepository {
 	}
 
   async add(booking){
-    const {firstName, lastName, email} = booking;
-    console.log("BOOKING: ",firstName, lastName, email);
-    
-    const result = await Booking.create({firstName, lastName, email});
-    return result;
+    const {firstName, lastName, email} = JSON.parse(booking.body.booking);
+    const images = [...booking.files].map(file => file.filename);
+
+    return await Booking.create({firstName, lastName, email, images});
   }
 }
 

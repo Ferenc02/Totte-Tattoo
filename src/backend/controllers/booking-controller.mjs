@@ -7,6 +7,6 @@ export const listAllBookings = catchErrorAsync(async (req, res) => {
 });
 
 export const addBooking = catchErrorAsync(async (req,res) => {
-  const booking = await new BookingRepository().add(req.body);
+  const booking = await new BookingRepository().add(req);
   res.status(200).json({success: true, data: booking });
 });

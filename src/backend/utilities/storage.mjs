@@ -4,9 +4,8 @@ import multer from 'multer';
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, './media/');
+		cb(null, process.env.MEDIA_DIR);
 	},
-
 	filename: (req, file, cb) => {
 		cb(null, Date.now() + '-' + file.originalname);
 	}
