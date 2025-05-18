@@ -21,12 +21,12 @@ const BookingSchema = new mongoose.Schema({
 
   date: {
     type: String,
-    required: [false, "Ett datum är nödvändigt för bokning."],
+    required: [true, "Ett datum är nödvändigt för bokning."],
   },
 
   time: {
-    type: String,
-    required: [false, "En tid är nödvändigt för bokning."],
+    type: [String],
+    required: [true, "En tid är nödvändigt för bokning."],
   },
 
   gdpr: {
