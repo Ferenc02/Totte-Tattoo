@@ -1,26 +1,34 @@
 # Backend: Tottes Tattoo 🎨🖋️
-
+ 
 ## Backend functionalities overview 🌟
-
-In this folder, called "backend", we keep the system for Totte's tattoo studio website. It handles bookings, consultations, and file uploading. 
-
+ 
+In this folder, called "backend", we keep the system for Totte's tattoo studio website. It handles bookings, consultations, and file uploading.
+ 
 ## Tools
 It is built with Node.js, using express, MongoDB & Mongoose.
-
+ 
 ## API Endpoints
+ 
+### Bookings
+- `GET /api/v1/booking` - Get all bookings
+- `POST /api/v1/booking` - Create a new booking
+- `GET /api/v1/booking/:id` - Get specific booking
+- `PUT /api/v1/booking/:id` - Update specific booking
+- `PATCH /api/v1/booking/:id` - Update part of specific booking
+ 
+### Consultations
+- `GET /api/v1/consultation` - Get all consultations
+- `POST /api/v1/consultation` - Create a new consultation
+- `GET /api/v1/consultation/:id` - Get specific consultation
+ 
+### Media
+- `GET /api/v1/media` - Get all media files
+ 
+### All bookings
+- `GET /api/v1/slots` - Get all booking slots
 
-### Bokningar
-- `GET /api/v1/booking` - Hämta alla bokningar
-- `POST /api/v1/booking` - Skapa en ny bokning
+## Architectural Decisions
 
-### Konsultationer
-- `GET /api/v1/consultation` - Hämta alla konsultationer
-- `POST /api/v1/consultation` - Skapa en ny konsultation
-- `GET /api/v1/consultation/:id` - Hämta specifik konsultation
+We decided to separate bookings and consultations into different endpoints to make a thorough and clear structure, and so more of us could practice creating endpoints.
 
-### Media (Under utveckling)
-- `GET /api/v1/media` - Hämta alla media-filer
-- `POST /api/v1/media` - Ladda upp ny media
-- `PUT /api/v1/media/:id` - Uppdatera media
-
-## Projektstruktur
+An alternative approach could have been to use a single booking model with a boolean flag for consultations, which would have simplified the backend structure since bookings an consultation share a lot of functionalities.
