@@ -61,10 +61,9 @@ export default class BookingRepository {
 	}
 
 	async add(booking) {
-		const { firstName, lastName, email, date, time } = JSON.parse(
-			booking.body.booking
-		);
-		const images = [...booking.files].map((file) => file.filename);
+		const { firstName, lastName, email, date, time, number } = booking.body;
+
+		//const images = [...booking.files].map((file) => file.filename);
 
 		return await Booking.create({
 			firstName,
@@ -72,8 +71,9 @@ export default class BookingRepository {
 			email,
 			date,
 			time,
-			images,
+			number,
 		});
+		//images,
 	}
 
 	async listSlots(year, month) {

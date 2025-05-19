@@ -8,14 +8,8 @@ import consultationRouter from './routes/consultation-routes.mjs';
 import mediaRouter from './routes/media-routes.mjs';
 
 import bookingRouter from './routes/booking-routes.mjs';
-<<<<<<< HEAD
 import errorHandler from './middleware/errorHandler.mjs';
 import AppError from './models/AppError.mjs';
-import { upload } from './utilities/storage.mjs';
-=======
-import errorHandler from "./middleware/errorHandler.mjs";
-import AppError from "./models/AppError.mjs";
->>>>>>> backend-fix
 
 dotenv.config({ path: './config/config.env' });
 
