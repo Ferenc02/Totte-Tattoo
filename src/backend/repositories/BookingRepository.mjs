@@ -10,45 +10,6 @@ export default class BookingRepository {
 		return bookings;
 	}
 
-	async add(booking) {
-		console.log(booking);
-		const {
-			firstName,
-			lastName,
-			email,
-			number,
-			message,
-			image,
-			date,
-			time,
-			gdpr,
-		} = booking;
-		console.log('BOKNING:', {
-			firstName,
-			lastName,
-			email,
-			number,
-			date,
-			time,
-			gdpr,
-			message,
-			image,
-		});
-
-		const result = await Booking.create({
-			firstName,
-			lastName,
-			email,
-			number,
-			date,
-			time,
-			gdpr,
-			message,
-			image,
-		});
-		return result;
-	}
-
 	async find(id) {
 		const booking = await Booking.findById(id);
 
