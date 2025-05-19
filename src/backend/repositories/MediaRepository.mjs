@@ -9,7 +9,7 @@ export default class MediaRepository {
     return await Media.create(data);
   }
 
-  async update(id, media) {
-    return await Media.findByIdAndUpdate(id, media, { new: true });
+  async find(name) {
+    
   }
 }
