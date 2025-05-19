@@ -12,7 +12,7 @@ export const findConsultation = catchErrorAsync(async (req, res) => {
 });
 
 export const addConsultation = catchErrorAsync(async (req, res) => {
-  const consultation = await new ConsultationRepository().add(req.body);
+  const consultation = await new ConsultationRepository().add(req);
   res.status(201).json({ success: true, data: consultation });
 });
 

@@ -7,13 +7,14 @@ import {
   updateConsultation,
   clearConsultations,
 } from '../controllers/consultation-controller.mjs';
+import { upload } from '../utilities/storage.mjs';
 
 const consultationRouter = express.Router();
 
 consultationRouter
   .route('/')
   .get(getAllConsultations)
-  .post(addConsultation)
+  .post(upload.array('file'), addConsultation)
   .delete(clearConsultations);
 
 consultationRouter
