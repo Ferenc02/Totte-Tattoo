@@ -1,4 +1,5 @@
 import Media from "../models/Media.mjs";
+import AppError from "../models/AppError.mjs";
 
 export default class MediaRepository {
   async getAll() {
@@ -10,18 +11,11 @@ export default class MediaRepository {
   }
 
   async find(name) {
-    const media = await Media.findOne({ fileName: name });
-    if (!media) {
-      throw new AppError(`Vi kan inte hitta filen ${name}`, 404);
-    }
-    return media;
-  }
+    const media = await Media.findByName(name);
 
-  async delete(name) {
-    const media = await Media.findOneAndDelete({ fileName: name });
-    if (!media) {
-      throw new AppError(`Vi kan inte hitta filen ${name}`, 404);
-    }
-    return media;
+		if (!media) {
+			throw new AppError(`Vi kan inte hitta filen med namnet: ${name}`, 404);
+		}
+		return media;
   }
 }
