@@ -12,8 +12,10 @@ export default class BookingRepository {
 	}
 
 	async add(booking) {
-		const { firstName, lastName, email, number, message, image, date, time, gdpr } = booking;
-		console.log("BOKNING:", { firstName, lastName, email, number, date, time, gdpr, message, image });
+		const { firstName, lastName, email, number, message, date, time, gdpr } = JSON.parse(booking.body.booking);
+    console.log("BOOKING:",booking.body.booking);
+    
+    const images = [...booking.files].map(file => file.filename);
 		
 		const result = await Booking.create({
 			firstName,
@@ -24,7 +26,7 @@ export default class BookingRepository {
 			time,
 			gdpr,
 			message,
-			image,
+			images,
 		});
 		return result;
 	}
@@ -74,13 +76,6 @@ export default class BookingRepository {
 		console.log("Bokning borttagen:", result);
 		return result;
 	}
-  
-  async add(booking){
-    const {firstName, lastName, email, date, time} = JSON.parse(booking.body.booking);
-    const images = [...booking.files].map(file => file.filename);
-
-    return await Booking.create({firstName, lastName, email, date, time, images});
-  }
 
   async listSlots(year, month) {
     // should only fetch bookings with relevant dates from storage

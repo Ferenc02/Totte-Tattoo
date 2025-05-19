@@ -31,7 +31,7 @@ const BookingSchema = new mongoose.Schema({
 
   gdpr: {
     type: String,
-    required: [true, "Att acceptera GDPR är nödvändigt för bokning."],
+    required: [false, "Att acceptera GDPR är nödvändigt för bokning."],
   },
 
   message: {

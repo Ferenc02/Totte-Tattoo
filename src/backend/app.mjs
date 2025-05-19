@@ -7,7 +7,6 @@ import consultationRouter from './routes/consultation-routes.mjs';
 import bookingRouter from './routes/booking-routes.mjs';
 import errorHandler from "./middleware/errorHandler.mjs";
 import AppError from "./models/AppError.mjs";
-import { upload } from './utilities/storage.mjs';
 
 dotenv.config({ path: './config/config.env' });
 
