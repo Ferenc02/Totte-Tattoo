@@ -1,3 +1,4 @@
+import { addBooking } from './bookingService.js';
 import { bookingDone } from './dom.js';
 
 const form = document.querySelector('#form-booking');
@@ -13,8 +14,8 @@ const handleSubmit = async (e) => {
 	const data = Object.fromEntries(formData.entries());
 	//	console.log(formData);
 	//console.log(data);
-
-	container.innerHTML = await bookingDone(data);
+	await addBooking(data);
+	//container.innerHTML = await bookingDone(data);
 };
 
 form.addEventListener('submit', handleSubmit);
