@@ -10,6 +10,18 @@ export default class MediaRepository {
   }
 
   async find(name) {
-    
+    const media = await Media.findOne({ fileName: name });
+    if (!media) {
+      throw new AppError(`Vi kan inte hitta filen ${name}`, 404);
+    }
+    return media;
+  }
+
+  async delete(name) {
+    const media = await Media.findOneAndDelete({ fileName: name });
+    if (!media) {
+      throw new AppError(`Vi kan inte hitta filen ${name}`, 404);
+    }
+    return media;
   }
 }

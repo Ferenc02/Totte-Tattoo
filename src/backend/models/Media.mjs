@@ -13,6 +13,8 @@ const mediaSchema = new mongoose.Schema({
     type: String,
     required: [true, "Model typ måste anges"],
   },
+}, {
+  timestamps: true
 });
 
 export default mongoose.model("Media", mediaSchema);
