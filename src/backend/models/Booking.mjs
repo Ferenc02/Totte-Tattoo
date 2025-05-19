@@ -25,7 +25,7 @@ const BookingSchema = new mongoose.Schema({
   },
 
   time: {
-    type: String,
+    type: [String],
     required: [true, "En tid är nödvändigt för bokning."],
   },
 
@@ -36,6 +36,10 @@ const BookingSchema = new mongoose.Schema({
 
   message: {
     type: String,
+  },
+
+  images: {
+    type: [String],
   },
 });
 
