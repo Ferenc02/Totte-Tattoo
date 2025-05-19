@@ -30,4 +30,16 @@ export default class ConsultationRepository {
     });
     return result;
   }
+
+  async remove(id) {
+    await Consultation.findByIdAndDelete(id);
+  }
+
+  async update(data, id) {
+    await Consultation.findByIdAndUpdate(id, data, { new: true });
+  }
+
+  async clear() {
+    await Consultation.deleteMany();
+  }
 }

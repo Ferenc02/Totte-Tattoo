@@ -16,7 +16,7 @@ const BookingSchema = new mongoose.Schema({
   },
   number: {
     type: String,
-    required: [false, "Ett telefonnummer är nödvändigt för bokning."],
+    required: [true, "Ett telefonnummer är nödvändigt för bokning."],
   },
 
   date: {
@@ -31,7 +31,7 @@ const BookingSchema = new mongoose.Schema({
 
   gdpr: {
     type: String,
-    required: [false, "Att acceptera GDPR är nödvändigt för bokning."],
+    required: [true, "Att acceptera GDPR är nödvändigt för bokning."],
   },
 
   message: {
