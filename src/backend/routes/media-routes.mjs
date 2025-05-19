@@ -1,11 +1,14 @@
 import express from "express";
-import { getAll, add, find } from '../controllers/media-controller.mjs'
+import { getAllMedia, addMedia, findMedia } from '../controllers/media-controller.mjs'
 import { upload } from "../utilities/storage.mjs";
 
 const mediaRouter = express.Router();
 
-mediaRouter.route("/").get(getAll).post(upload.array('file'), add);
+mediaRouter.route("/")
+  .get(getAllMedia)
+  .post(upload.array('file'), addMedia);
 
-mediaRouter.route("/:name").get(find);
+mediaRouter.route("/:name")
+  .get(findMedia);
 
 export default mediaRouter;
