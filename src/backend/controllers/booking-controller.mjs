@@ -14,6 +14,7 @@ export const addBooking = catchErrorAsync(async (req, res) => {
 export const listOpenTimeSlots = catchErrorAsync(async (req, res) => {
 	const { year, month } = req.body;
 	const slots = await new BookingRepository().listSlots(year, month);
+	console.log(slots);
 	res.status(200).json({ success: true, data: slots });
 });
 
