@@ -232,6 +232,61 @@ footer p:nth-child(2) {
   }
 }
 
+/* Article stuff */
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 1024px;
+  font-size: large;
+}
+article h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--navbar-text-color);
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+article h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--navbar-text-color);
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+article h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navbar-text-color);
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+article figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+article figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+article figure figcaption {
+  font-size: 0.75rem;
+  color: var(--navbar-text-color);
+  text-align: center;
+}
+
 /* Mobile stuff */
 
 @media (max-width: 1024px) {
