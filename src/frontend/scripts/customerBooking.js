@@ -31,4 +31,6 @@ const handleRemove = async () => {
 	}
 };
 
+const handleEditBooking = async () => {};
+
 btn.addEventListener('click', handleClick);
