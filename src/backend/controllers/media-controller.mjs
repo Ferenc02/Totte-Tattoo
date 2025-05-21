@@ -21,3 +21,8 @@ export const findMedia = catchErrorAsync(async (req, res) => {
   const media = await new MediaRepository().find(req.params.name);
   res.status(200).json({ success: true, data: media });
 });
+
+export const mediaDelete = catchErrorAsync(async (req, res) => {
+  await new MediaRepository().remove(req.params.name);
+  res.status(204).end();
+})

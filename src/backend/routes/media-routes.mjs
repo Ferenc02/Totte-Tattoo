@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllMedia, addMedia, findMedia } from '../controllers/media-controller.mjs'
+import { getAllMedia, addMedia, findMedia, mediaDelete } from '../controllers/media-controller.mjs'
 import { upload } from "../utilities/storage.mjs";
 
 const mediaRouter = express.Router();
@@ -9,6 +9,7 @@ mediaRouter.route("/")
   .post(upload.array('file'), addMedia);
 
 mediaRouter.route("/:name")
-  .get(findMedia);
+  .get(findMedia)
+  .delete(mediaDelete)
 
 export default mediaRouter;
