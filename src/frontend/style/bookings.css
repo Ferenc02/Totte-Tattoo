@@ -227,3 +227,68 @@ button {
 		background-color: var(--c-theme-primary-accent);
 	}
 }
+
+.booked {
+	background-color: #008ffd;
+	border-radius: 4px;
+	height: auto;
+	width: 800px;
+	padding: 2rem;
+
+	h2 {
+		background-color: white;
+		text-align: center;
+		border-radius: 3px;
+		padding: 1rem;
+	}
+	span {
+		border-radius: 3px;
+		padding: 1rem;
+		background-color: white;
+	}
+}
+
+.check {
+	color: green;
+}
+
+.remove-btn {
+	padding: 0.8rem;
+	margin-left: 2rem;
+	background-color: rgba(253, 31, 31, 0.74);
+}
+
+.remove-text {
+	background-color: white;
+	margin-top: 1rem;
+	padding: 20px;
+	text-align: center;
+}
+
+.span-id {
+	margin-left: 25%;
+	padding: 20px;
+	font-style: italic;
+	font-weight: bolder;
+}
+
+.booking-removed {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	h2 {
+		padding: 3rem;
+	}
+}
+
+.countdown {
+	background-color: white;
+	padding: 3rem;
+	margin-left: 1rem;
+}
+#countdown {
+	font-style: italic;
+	font-weight: bolder;
+}

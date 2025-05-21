@@ -27,5 +27,21 @@ export const addBooking = async (booking) => {
 			time,
 		}),
 	});
-	console.log(response);
+	const data = await response.json();
+	return data;
+};
+
+export const deleteBooking = async (id) => {
+	const response = await fetch(`${URL}/${id}`, {
+		method: 'DELETE',
+	});
+
+	return response.ok;
+};
+
+export const getCustomerBooking = async (id) => {
+	const response = await fetch(`${URL}/${id}`);
+	const data = await response.json();
+	//window.location.href = `${window.location.href}?id=${id}`;
+	return data;
 };
