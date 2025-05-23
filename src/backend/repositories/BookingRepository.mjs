@@ -78,8 +78,10 @@ export default class BookingRepository {
 		//images,
 	}
 
-	async listSlots(year, month) {
+	async listSlots(yearStr, monthStr) {
 		// should only fetch bookings with relevant dates from storage
+		const year = parseInt(yearStr);
+		const month = parseInt(monthStr);
 		const bookings = await Booking.find();
 
 		const bookedSlots = groupBookedSlots(bookings);
@@ -87,7 +89,7 @@ export default class BookingRepository {
 		console.log(bookedSlots);
 		const daysInMonth = new Date(year, month, 0).getDate();
 
-		console.log(daysInMonth);
+		//console.log(daysInMonth);
 		const openSlots = getOpenSlots(daysInMonth, bookedSlots, year, month);
 
 		return openSlots;

@@ -2,15 +2,23 @@ const URL = 'http://localhost:3001/api/v1/booking';
 
 export const getBookings = async () => {
 	try {
-		const response = await fetch(`${URL}/slots`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ year: '2025', month: '05' }),
-		});
-		console.log(response);
-		if (response.success) {
+		const response = await fetch(URL);
+		if (response) {
 			const data = await response.json();
-			//console.log(data);
+			return data;
+		}
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getOpenSlots = async (year, month) => {
+	try {
+		const response = await fetch(
+			`${URL}/slots?year=${year}&month=${month}`
+		);
+		if (response) {
+			const data = await response.json();
 
 			return data.data;
 		}
@@ -20,7 +28,6 @@ export const getBookings = async () => {
 };
 
 export const addBooking = async (booking) => {
-	console.log(booking);
 	const { firstName, lastName, email, phone, message, gdpr, date, time } =
 		booking;
 
