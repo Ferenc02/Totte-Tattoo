@@ -25,7 +25,7 @@ It is built with Node.js, using express, MongoDB & Mongoose.
 - `GET /api/v1/media` - Get all media files
  
 ### All bookings
-- `GET /api/v1/slots` - Get all booking slots
+- `GET /api/v1/booking/slots` - Get all booking slots
 
 ## Architectural Decisions
 

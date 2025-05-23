@@ -5,12 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../style/reset.css" />
 		<link rel="stylesheet" href="../style/style.css" />
-		<!-- Font stuff -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Miltonian+Tattoo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 			rel="stylesheet" />
+		<script
+			type="module"
+			src="../scripts/customerBooking.js"
+			defer></script>
 		<title>Tattiga Tottes Tattoo</title>
 	</head>
 	<body>
@@ -35,47 +38,62 @@
 				</label>
 				<ul>
 					<li>
-						<a href="index.html" class="active"
+						<a href="index.html"
 							>Startsida
-
-							<div class="underline"></div>
-						</a>
+							<div class="underline"></div
+						></a>
 					</li>
 					<li>
 						<a href="bookings.html"
 							>Boka tid
+
 							<div class="underline"></div>
 						</a>
 					</li>
+
 					<li>
 						<a href="gallery.html"
 							>Galleri
+
+							<div class="underline"></div>
+						</a>
+					</li>
+
+					<li>
+						<a href="booking.html" class="active"
+							>Din bokning
 							<div class="underline"></div>
 						</a>
 					</li>
 					<li>
 						<a href="care.html"
 							>Skötsel
+
 							<div class="underline"></div>
 						</a>
 					</li>
 					<li>
-						<a href="booking.html"
-							>Din bokning
-							<div class="underline"></div
-						></a>
-					</li>
-					<li>
 						<a href="admin.html"
 							>Admin
+
 							<div class="underline"></div>
 						</a>
 					</li>
 				</ul>
 			</nav>
 		</header>
-		<main>
-			Vi sparar cookies på din dator för att övervaka allt du gör.
+		<main class="check-booking">
+			<h1>Ange ditt bokningsID:</h1>
+			<div>
+				<label for="bookingid">
+					<input
+						type="text"
+						id="bookingid"
+						placeholder="682d0aa353c31b166e2b2c12" />
+				</label>
+				<button id="search">Kolla upp</button>
+			</div>
+			<div class="bookings-container"></div>
 		</main>
 		<footer>
 			<p>© 2025 Tottes Tattoo.</p>
