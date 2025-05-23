@@ -3,16 +3,18 @@ import mongoose from "mongoose";
 const mediaSchema = new mongoose.Schema({
   fileName: {
     type: String,
-    required: [true, "Tillverkare måste anges"],
+    required: [true, "Filnamn måste anges"],
   },
   filePath: {
     type: String,
-    required: [true, "Model typ måste anges"],
+    required: [true, "Filsökväg måste anges"],
   },
   fileType: {
     type: String,
-    required: [true, "Model typ måste anges"],
+    required: [true, "Filtyp måste anges"],
   },
+}, {
+  timestamps: true
 });
 
 export default mongoose.model("Media", mediaSchema);

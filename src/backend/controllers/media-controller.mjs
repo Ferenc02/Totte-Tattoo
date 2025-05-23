@@ -1,17 +1,23 @@
-import { catchErrorAsync } from '../utilities/catchErrorAsync.mjs';
-import MediaRepository from '../repositories/MediaRepository.mjs';
+import { catchErrorAsync } from "../utilities/catchErrorAsync.mjs";
+import MediaRepository from "../repositories/MediaRepository.mjs";
 
-export const getAll = catchErrorAsync(async (req, res) => {
-	const media = MediaRepository.getAll();
-	res.status(200).json({ success: true, data: media });
+export const getAllMedia = catchErrorAsync(async (req, res) => {
+  const media = await new MediaRepository().getAll();
+  res.status(200).json({ success: true, data: media });
 });
 
-export const add = catchErrorAsync(async (req, res) => {
-	const media = MediaRepository.create(req.body);
-	res.status(200).json({ success: true, data: media });
+export const addMedia = catchErrorAsync(async (req, res) => {
+  const mediaFiles = req.files.map(file => ({
+    fileName: file.filename,
+    filePath: file.path,
+    fileType: file.mimetype
+  }));
+
+  const savedMedia = await new MediaRepository().create(mediaFiles);
+  res.status(201).json({ success: true, data: savedMedia });
 });
 
-export const find = catchErrorAsync(async (req, res) => {
-	const media = MediaRepository.find(req.params.name);
-	res.status(200).json({ success: true, data: media });
+export const findMedia = catchErrorAsync(async (req, res) => {
+  const media = await new MediaRepository().find(req.params.name);
+  res.status(200).json({ success: true, data: media });
 });

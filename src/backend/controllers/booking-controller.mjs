@@ -30,6 +30,6 @@ export const updateBooking = catchErrorAsync(async (req, res) => {
 });
 
 export const deleteBooking = catchErrorAsync(async (req, res) => {
-	await new BookingRepository().delete(req.params.id);
-	res.status(204).end();
+  await new BookingRepository().remove(req.params.id);
+  res.status(204).end();
 });
