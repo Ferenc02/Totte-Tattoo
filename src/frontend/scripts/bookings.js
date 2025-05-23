@@ -16,7 +16,7 @@ const handleSubmit = async (e) => {
 	const formData = new FormData(e.target);
 	const data = Object.fromEntries(formData.entries());
 	//	console.log(formData);
-	//console.log(data);
+	console.log(data);
 	const response = await addBooking(data);
 	//console.log(response.data._id);
 	container.innerHTML = await bookingDone(response.data);

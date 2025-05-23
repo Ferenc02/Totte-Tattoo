@@ -61,7 +61,8 @@ export default class BookingRepository {
 	}
 
 	async add(booking) {
-		const { firstName, lastName, email, date, time, number } = booking.body;
+		const { firstName, lastName, email, date, time, number, gdpr } =
+			booking.body;
 
 		//const images = [...booking.files].map((file) => file.filename);
 
@@ -72,6 +73,7 @@ export default class BookingRepository {
 			date,
 			time,
 			number,
+			gdpr,
 		});
 		//images,
 	}
@@ -82,7 +84,10 @@ export default class BookingRepository {
 
 		const bookedSlots = groupBookedSlots(bookings);
 
+		console.log(bookedSlots);
 		const daysInMonth = new Date(year, month, 0).getDate();
+
+		console.log(daysInMonth);
 		const openSlots = getOpenSlots(daysInMonth, bookedSlots, year, month);
 
 		return openSlots;
