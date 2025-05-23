@@ -1,21 +1,17 @@
-
-import { getBookings } from './bookingService.js';
-
 export const bookingDone = async (booking) => {
+	const container = document.querySelector('.booking-container');
+	const main = document.querySelector('main');
 	const { date, firstName, lastName, email, number, _id } = booking;
-	const bkgs = await getBookings();
-	const bkgsData = bkgs.data;
-	console.log(bkgsData);
-	const bkgsHtml = bkgsData.map(
-		(b) => `<p>${b.firstName} - ${b.lastName} - ${b.email}</p>`
-	);
 
 	let html = `<div class='booked'><h2>Bokat <span class='check'>&#10004;</span></h2> <br />
 	<span class='booked-txt'>${date} ${firstName} ${lastName} ${email} ${number}</span><button class='remove-btn' id='remove-button'>Ta bort bokning</button>
 	<p class='remove-text'>Vill du avboka/kontrollera din bokning i ett senare skede anvand:</p> <br /><span class='span-id'>${_id}</span>
 
 	</div>`;
-	return html.replace(',', '');
+	container.innerHTML = html.replace(',', '');
+	main.style.backgroundColor = 'yellow';
+	main.innerHTML = '';
+	main.appendChild(container);
 };
 
 export const bookingRemoved = () => {
@@ -39,6 +35,15 @@ export const bookingRemoved = () => {
 		}, 1000);
 	}, 0);
 	return html;
+};
+
+export const showOpenSlots = (slots) => {
+	const time = document.querySelector('#time');
+	let html = `<option value="" disabled selected>Välj tid</option>${slots.map(
+		(slot) => `<option value='${slot}'>${slot}</option>`
+	)}`;
+
+	time.innerHTML = html;
 };
 
 export const bookingCard = (booking) => {
@@ -73,4 +78,3 @@ export const bookingCard = (booking) => {
 
 	return div;
 };
-

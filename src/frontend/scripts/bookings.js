@@ -1,14 +1,30 @@
-import { addBooking, deleteBooking, getBookings } from './bookingService.js';
-import { bookingDone, bookingRemoved } from './dom.js';
+import {
+	addBooking,
+	deleteBooking,
+	getBookings,
+	getOpenSlots,
+} from './bookingService.js';
+import { bookingDone, bookingRemoved, showOpenSlots } from './dom.js';
 
 const form = document.querySelector('#form-booking');
 const container = document.querySelector('.booking-container');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
+const date = document.querySelector('#date');
 
+let allOpenSlots;
 const initApp = async () => {
-	const freeSlots = await getBookings();
-	console.log(freeSlots);
+	allOpenSlots = await getOpenSlots();
+
+	console.log(allOpenSlots.find((d) => d.day === 1));
+	console.log(allOpenSlots[0].slots);
+};
+
+const getSlots = async (e) => {
+	const day = e.target.value.split('-');
+	const openSlots = allOpenSlots.find((d) => d.day == day[2]);
+	console.log(openSlots.slots);
+	showOpenSlots(openSlots.slots);
 };
 
 const handleSubmit = async (e) => {
@@ -17,16 +33,10 @@ const handleSubmit = async (e) => {
 	const formData = new FormData(e.target);
 	const data = Object.fromEntries(formData.entries());
 
-	//	console.log(formData);
-	//data.gpdr = 'Accepted';
 	console.log(data);
 	const response = await addBooking(data);
 	//console.log(response.data._id);
-	container.innerHTML = await bookingDone(response.data);
-
-	main.style.backgroundColor = 'yellow';
-	main.innerHTML = '';
-	main.appendChild(container);
+	bookingDone(response.data);
 
 	const removeBtn = main.querySelector('#remove-button');
 	removeBtn.addEventListener('click', handleRemove);
@@ -45,5 +55,6 @@ const handleRemove = async (e) => {
 	}
 };
 
+date.addEventListener('change', getSlots);
 form.addEventListener('submit', handleSubmit);
 document.addEventListener('DOMContentLoaded', initApp);
