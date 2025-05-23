@@ -11,6 +11,15 @@ This project is a group assignment aimed at demonstrating skills in teamwork, ba
 - **Customizable Appointments**: Default booking durations are 1–2 hours, but customers can request longer sessions. ⏳
 - **Artistic Design**: The website will reflect the studio's focus on fantasy-themed, highly detailed tattoos. 🖌️
 
+## Installation Instructions 📦
+
+1. **Clone the Repository**: Use `git clone <repository-url>` to clone the project.
+2. **Install Dependencies**: Navigate to the project directory and run `npm install` to install required packages.
+3. **Install backend Dependencies**: run `npm run backend_install` to install backend dependencies.
+4. **Run the Project**: Use `npm run dev` to start both the web server and backend server.
+5. **Access the Website**: Open your web browser and go to `http://localhost:3000` to view the website.
+6. **Access the Backend**: The backend server will be running on `http://localhost:3001`.
+
 ## Technical Requirements 💻
 
 ### Backend 🛠️
