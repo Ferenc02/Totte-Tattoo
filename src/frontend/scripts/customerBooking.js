@@ -10,6 +10,7 @@ let id;
 const handleClick = async (e) => {
 	const response = await getCustomerBooking(input.value);
 	console.log(response);
+	if (!response) return alert('Ingen bokning hittad!');
 	if (response.success) {
 		const card = bookingCard(response.data);
 		id = response.data._id;
@@ -17,8 +18,6 @@ const handleClick = async (e) => {
 		main.appendChild(card);
 		const deleteBtn = document.querySelector('#cancel-booking');
 		deleteBtn.addEventListener('click', handleRemove);
-	} else {
-		alert('Ingen bokning hittad');
 	}
 };
 
