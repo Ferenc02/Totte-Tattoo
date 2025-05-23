@@ -1,30 +1,47 @@
 # Backend: Tottes Tattoo 🎨🖋️
- 
+
 ## Backend functionalities overview 🌟
- 
+
 In this folder, called "backend", we keep the system for Totte's tattoo studio website. It handles bookings, consultations, and file uploading.
- 
+
+## Getting started 🚀
+
+1. `npm install`
+2. `npm run dev` to start the server
+3. Make sure you have MongoDB running locally on your machine.
+4. The MongoDB connection is to localhost, so make sure you have it running locally.
+5. Create a db called "db" in your MongoDB instance.
+6. The mongoDB connection string is mongodb://127.0.0.1:27017/db
+
 ## Tools
+
 It is built with Node.js, using express, MongoDB & Mongoose.
- 
+
 ## API Endpoints
- 
+
 ### Bookings
+
 - `GET /api/v1/booking` - Get all bookings
 - `POST /api/v1/booking` - Create a new booking
 - `GET /api/v1/booking/:id` - Get specific booking
 - `PUT /api/v1/booking/:id` - Update specific booking
+- `DELETE /api/v1/booking/:id` - Delete specific booking
 - `PATCH /api/v1/booking/:id` - Update part of specific booking
- 
-### Consultations
+
+### Consultations (Same as bookings)
+
 - `GET /api/v1/consultation` - Get all consultations
 - `POST /api/v1/consultation` - Create a new consultation
 - `GET /api/v1/consultation/:id` - Get specific consultation
- 
+- `PUT /api/v1/consultation/:id` - Update specific consultation
+- `DELETE /api/v1/consultation/:id` - Delete specific consultation
+
 ### Media
+
 - `GET /api/v1/media` - Get all media files
- 
+
 ### All bookings
+
 - `GET /api/v1/booking/slots` - Get all booking slots
 
 ## Architectural Decisions
