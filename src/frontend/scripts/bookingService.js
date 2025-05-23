@@ -12,9 +12,11 @@ export const getBookings = async () => {
 	}
 };
 
-export const getOpenSlots = async () => {
+export const getOpenSlots = async (year, month) => {
 	try {
-		const response = await fetch(`${URL}/slots?year=2025&month=05`);
+		const response = await fetch(
+			`${URL}/slots?year=${year}&month=${month}`
+		);
 		if (response) {
 			const data = await response.json();
 

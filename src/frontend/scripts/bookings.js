@@ -10,20 +10,27 @@ const form = document.querySelector('#form-booking');
 const container = document.querySelector('.booking-container');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
-const date = document.querySelector('#date');
+const dateCalendar = document.querySelector('#date');
 
-let allOpenSlots;
 const initApp = async () => {
-	allOpenSlots = await getOpenSlots();
-
-	console.log(allOpenSlots.find((d) => d.day === 1));
-	console.log(allOpenSlots[0].slots);
+	//allOpenSlots = await getOpenSlots();
+	//console.log(allOpenSlots.find((d) => d.day === 1));
+	//console.log(allOpenSlots[0].slots);
 };
 
 const getSlots = async (e) => {
-	const day = e.target.value.split('-');
-	const openSlots = allOpenSlots.find((d) => d.day == day[2]);
-	console.log(openSlots.slots);
+	const date = e.target.value.split('-');
+	const year = date[0];
+	const month = date[1];
+	const allOpenSlots = await getOpenSlots(year, month);
+
+	const openSlots = allOpenSlots.find((d) => d.day == date[2]);
+	if (openSlots.slots.length < 1) {
+		alert('Allt fullt detta datum!');
+
+		dateCalendar.value = '';
+	}
+	//console.log(openSlots.slots);
 	showOpenSlots(openSlots.slots);
 };
 
@@ -55,6 +62,6 @@ const handleRemove = async (e) => {
 	}
 };
 
-date.addEventListener('change', getSlots);
+dateCalendar.addEventListener('change', getSlots);
 form.addEventListener('submit', handleSubmit);
 document.addEventListener('DOMContentLoaded', initApp);
