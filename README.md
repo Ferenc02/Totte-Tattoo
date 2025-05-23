@@ -20,6 +20,7 @@ This project is a group assignment aimed at demonstrating skills in teamwork, ba
 5. **Access the Website**: Open your web browser and go to `http://localhost:3000` to view the website.
 6. **Access the Backend**: The backend server will be running on `http://localhost:3001`.
 
+
 ## Technical Requirements 💻
 
 ### Backend 🛠️

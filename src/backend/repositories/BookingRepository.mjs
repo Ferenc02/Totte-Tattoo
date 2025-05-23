@@ -1,41 +1,23 @@
-import Booking from "../models/Booking.mjs";
-import {timeSlots} from '../config/settings.mjs';
-import { getOpenSlots, groupBookedSlots } from "../utilities/utils.mjs";
-import AppError from "../models/AppError.mjs";
-
+import Booking from '../models/Booking.mjs';
+import { timeSlots } from '../config/settings.mjs';
+import { getOpenSlots, groupBookedSlots } from '../utilities/utils.mjs';
+import AppError from '../models/AppError.mjs';
 
 export default class BookingRepository {
 	async listAll() {
 		const bookings = await Booking.find();
-		console.log("Antal bokningar hittade:", bookings.length);
+		console.log('Antal bokningar hittade:', bookings.length);
 		return bookings;
-	}
-
-	async add(booking) {
-		const { firstName, lastName, email, number, message, date, time, gdpr } = JSON.parse(booking.body.booking);
-    console.log("BOOKING:",booking.body.booking);
-    
-    const images = [...booking.files].map(file => file.filename);
-		
-		const result = await Booking.create({
-			firstName,
-			lastName,
-			email,
-			number,
-			date,
-			time,
-			gdpr,
-			message,
-			images,
-		});
-		return result;
 	}
 
 	async find(id) {
 		const booking = await Booking.findById(id);
 
 		if (!booking) {
-			throw new AppError(`Vi kan inte hitta bokningen med id: ${id}`, 404);
+			throw new AppError(
+				`Vi kan inte hitta bokningen med id: ${id}`,
+				404
+			);
 		}
 		return booking;
 	}
@@ -44,50 +26,70 @@ export default class BookingRepository {
 		// PUT - Uppdaterar hela bokningen
 		// Kontrollera att alla obligatoriska fält finns med
 		const requiredFields = ['firstName', 'lastName', 'email'];
-		const missingFields = requiredFields.filter(field => !data[field]);
-		
+		const missingFields = requiredFields.filter((field) => !data[field]);
+
 		if (missingFields.length > 0) {
-			throw new AppError(`Saknar obligatoriska fält: ${missingFields.join(', ')}`, 400);
+			throw new AppError(
+				`Saknar obligatoriska fält: ${missingFields.join(', ')}`,
+				400
+			);
 		}
 
-		const result = await Booking.findByIdAndUpdate(
-			id, 
-			data,
-			{ 
-				new: true,
-				runValidators: true
-			}
-		);
+		const result = await Booking.findByIdAndUpdate(id, data, {
+			new: true,
+			runValidators: true,
+		});
 
 		if (!result) {
-			throw new AppError(`Vi kan inte hitta bokningen med id: ${id}`, 404);
+			throw new AppError(
+				`Vi kan inte hitta bokningen med id: ${id}`,
+				404
+			);
 		}
 
-		console.log("Bokning helt uppdaterad:", result);
+		console.log('Bokning helt uppdaterad:', result);
 		return result;
 	}
-
 
 	async delete(id) {
 		const result = await Booking.findByIdAndDelete(id);
 		if (!result) {
 			throw new AppError(`Det finns ingen bokning med id: ${id}`, 404);
 		}
-		console.log("Bokning borttagen:", result);
+		console.log('Bokning borttagen:', result);
 		return result;
 	}
 
-  async listSlots(year, month) {
-    // should only fetch bookings with relevant dates from storage
-    const bookings = await Booking.find();
-    
-    const bookedSlots = groupBookedSlots(bookings);
+	async add(booking) {
+		const { firstName, lastName, email, date, time, number, gdpr } =
+			booking.body;
 
-    const daysInMonth = new Date(year, month, 0).getDate();
-    const openSlots = getOpenSlots(daysInMonth, bookedSlots, year, month);
+		//const images = [...booking.files].map((file) => file.filename);
 
-    return openSlots;
-  }
+		return await Booking.create({
+			firstName,
+			lastName,
+			email,
+			date,
+			time,
+			number,
+			gdpr,
+		});
+		//images,
+	}
 
+	async listSlots(year, month) {
+		// should only fetch bookings with relevant dates from storage
+		const bookings = await Booking.find();
+
+		const bookedSlots = groupBookedSlots(bookings);
+
+		console.log(bookedSlots);
+		const daysInMonth = new Date(year, month, 0).getDate();
+
+		console.log(daysInMonth);
+		const openSlots = getOpenSlots(daysInMonth, bookedSlots, year, month);
+
+		return openSlots;
+	}
 }
-
