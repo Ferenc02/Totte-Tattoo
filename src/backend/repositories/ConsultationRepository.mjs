@@ -18,8 +18,10 @@ export default class ConsultationRepository {
   }
 
   async add(consultation) {
-    const { firstName, lastName, email, number, message } = consultation;
+    const { firstName, lastName, email, number, message } = JSON.parse(consultation.body.consultation);
     console.log('CONSULTATION: ', firstName, lastName, email);
+
+    const images = [...consultation.files].map(file => file.filename);
 
     const result = await Consultation.create({
       firstName,
@@ -27,6 +29,7 @@ export default class ConsultationRepository {
       email,
       number,
       message,
+      images,
     });
     return result;
   }

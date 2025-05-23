@@ -1,3 +1,4 @@
+
 import { getBookings } from './bookingService.js';
 
 export const bookingDone = async (booking) => {
@@ -72,3 +73,4 @@ export const bookingCard = (booking) => {
 
 	return div;
 };
+

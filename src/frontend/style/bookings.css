@@ -99,6 +99,7 @@
 	background-color: var(--c-bg-primary);
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
 }
 
 .timepicker {
@@ -111,6 +112,7 @@
 		height: 2rem;
 	}
 }
+
 button {
 	font: inherit;
 	cursor: pointer;
@@ -226,6 +228,7 @@ button {
 	&:focus {
 		background-color: var(--c-theme-primary-accent);
 	}
+
 }
 
 .booked {
@@ -291,4 +294,5 @@ button {
 #countdown {
 	font-style: italic;
 	font-weight: bolder;
+
 }

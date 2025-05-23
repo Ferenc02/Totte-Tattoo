@@ -20,8 +20,8 @@ const ConsultationSchema = new mongoose.Schema({
   message: {
     type: String,
   },
-  Image: {
-    type: String,
+  Images: {
+    type: [String],
   },
 });
 

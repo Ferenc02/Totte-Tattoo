@@ -1,3 +1,4 @@
+
 import { addBooking, deleteBooking } from './bookingService.js';
 import { bookingDone, bookingRemoved } from './dom.js';
 
@@ -6,15 +7,19 @@ const container = document.querySelector('.booking-container');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
+
 const initApp = () => {
 	console.log(form);
 };
 
+
 const handleSubmit = async (e) => {
+
 	e.preventDefault();
 	console.log(e.target);
 	const formData = new FormData(e.target);
 	const data = Object.fromEntries(formData.entries());
+
 	//	console.log(formData);
 	console.log(data);
 	const response = await addBooking(data);
@@ -40,6 +45,7 @@ const handleRemove = async (e) => {
 		main.innerHTML = '';
 		main.innerHTML = bookingRemoved();
 	}
+
 };
 
 form.addEventListener('submit', handleSubmit);
