@@ -3,13 +3,26 @@ export const bookingDone = async (booking) => {
   const main = document.querySelector("main");
   const { date, firstName, lastName, email, number, _id } = booking;
 
-  let html = `<div class='booked'><h2>Bokat <span class='check'>&#10004;</span></h2> <br />
-	<span class='booked-txt'>${date} ${firstName} ${lastName} ${email} ${number}</span><button class='remove-btn' id='remove-button'>Ta bort bokning</button>
-	<p class='remove-text'>Vill du avboka/kontrollera din bokning i ett senare skede anvand:</p> <br /><span class='span-id'>${_id}</span>
-
-	</div>`;
+  let html = `
+    <div class='booked'>
+      <h2>Bokat <span class='check'>&#10004;</span></h2>
+      <br />
+      <span class='booked-txt'>
+        ${date} <br />
+        ${firstName} ${lastName} <br />
+        ${email} <br />
+        ${number}
+      </span>
+      <br />
+      <button class='remove-btn button' id='remove-button'>Ta bort bokning</button>
+      <p class='remove-text'>
+        Vill du avboka/kontrollera din bokning i ett senare skede använd:
+      </p>
+      <br />
+      <span class='span-id'>${_id}</span>
+    </div>
+  `;
   container.innerHTML = html.replace(",", "");
-  main.style.backgroundColor = "yellow";
   main.innerHTML = "";
   main.appendChild(container);
 };

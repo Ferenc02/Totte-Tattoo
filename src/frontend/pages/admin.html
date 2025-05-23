@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Miltonian+Tattoo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <script type="module" src="../scripts/admin.js" defer></script>
     <title>Tottes Tattoo | Admin</title>
   </head>
   <body>
@@ -68,71 +70,16 @@
       </nav>
     </header>
     <main>
-      <h1 class="bookings-header">Boka Tid</h1>
-      <section class="booking-container">
-        <form class="booking-form">
-          <div class="datepicker">
-            <div class="datepicker-top">
-              <div class="btn-group">
-                <button class="tag">Idag</button>
-                <button class="tag">Imorgon</button>
-              </div>
-              <div class="month-selector">
-                <button class="arrow">
-                  <img src="../images/chevron_left.svg" alt="left button" />
-                </button>
-                <span class="month-name">December 2020</span>
-                <button class="arrow">
-                  <img src="../images/chevron_right.svg" alt="right button" />
-                </button>
-              </div>
-            </div>
-            <div class="datepicker-calendar">
-              <span class="day">Mo</span>
-              <span class="day">Tu</span>
-              <span class="day">We</span>
-              <span class="day">Th</span>
-              <span class="day">Fr</span>
-              <span class="day">Sa</span>
-              <span class="day">Su</span>
-              <button class="date faded">30</button>
-              <button class="date">1</button>
-              <button class="date">2</button>
-              <button class="date">3</button>
-              <button class="date">4</button>
-              <button class="date">5</button>
-              <button class="date">6</button>
-              <button class="date">7</button>
-              <button class="date">8</button>
-              <button class="date current-day">9</button>
-              <button class="date">10</button>
-              <button class="date">11</button>
-              <button class="date">12</button>
-              <button class="date">13</button>
-              <button class="date">14</button>
-              <button class="date">15</button>
-              <button class="date">16</button>
-              <button class="date">17</button>
-              <button class="date">18</button>
-              <button class="date">19</button>
-              <button class="date">20</button>
-              <button class="date">21</button>
-              <button class="date">22</button>
-              <button class="date">23</button>
-              <button class="date">24</button>
-              <button class="date">25</button>
-              <button class="date">26</button>
-              <button class="date">27</button>
-              <button class="date">28</button>
-              <button class="date">29</button>
-              <button class="date">30</button>
-              <button class="date">31</button>
-              <button class="date faded">1</button>
-              <button class="date faded">2</button>
-              <button class="date faded">3</button>
-            </div>
+      <h1 class="welcome-text">Admin Sida</h1>
+      <!-- Reusing elements because lack of time -->
+      <section class="search-booking-container">
+        <div class="search-booking">
+          <div class="bookings-container admin-container"></div>
+          <div class="no-bookings">
+            <h2>Inga bokningar</h2>
+            <p>Det finns inga bokningar att visa.</p>
           </div>
-        </form>
+        </div>
       </section>
     </main>
     <footer>

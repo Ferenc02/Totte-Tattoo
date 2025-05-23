@@ -164,12 +164,6 @@ button {
   color: green;
 }
 
-.remove-btn {
-  background-color: rgba(253, 31, 31, 0.74);
-}
-.remove-btn:hover {
-  background-color: rgba(253, 31, 31, 0.94);
-}
 .remove-text {
   background-color: white;
   margin-top: 1rem;
