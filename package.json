@@ -1,7 +1,7 @@
 {
   "name": "totte-tattoo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev:http": "node app.js",
     "dev:backend": "cd src/backend && npm run dev",

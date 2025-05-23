@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/reset.css" />
     <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/galleri.css" />
-    <!-- Font stuff -->
+    <link rel="stylesheet" href="../style/bookings.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Miltonian+Tattoo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Tattiga Tottes Tattoo | Galleri</title>
+
+    <script type="module" src="../scripts/customerBooking.js" defer></script>
+
+    <title>Tattiga Tottes Tattoo | Sök bokning</title>
   </head>
   <body>
     <header>
@@ -44,85 +46,55 @@
           <li>
             <a href="new-booking.html"
               >Boka tid
+
               <div class="underline"></div>
             </a>
           </li>
           <li>
-            <a href="gallery.html" class="active"
+            <a href="gallery.html"
               >Galleri
+
               <div class="underline"></div>
             </a>
           </li>
           <li>
-            <a href="search-booking.html"
+            <a href="search-booking.html" class="active"
               >Sök bokning
-              <div class="underline"></div
-            ></a>
+
+              <div class="underline"></div>
+            </a>
           </li>
           <li>
             <a href="care.html"
               >Skötsel
+
               <div class="underline"></div>
             </a>
           </li>
           <li>
             <a href="admin.html"
               >Admin
+
               <div class="underline"></div>
             </a>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="container">
-      <figure>
-        <img src="../images/bild1.png" alt="bild1" />
-        <figcaption>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam odit
-          perferendis debitis magnam laborum pariatur recusandae iure
-          reiciendis. Ipsum, amet!
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="../images/bild2.png" alt="bild2" />
-        <figcaption>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit
-          necessitatibus temporibus ipsa a nulla deserunt quam aliquid
-          consequuntur vel? Architecto.
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="../images/bild3.png" alt="bild3" />
-        <figcaption>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ut
-          perferendis ex quaerat assumenda voluptatum aperiam repellendus
-          placeat voluptatibus saepe.
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="../images/bild4.png" alt="bild4" />
-        <figcaption>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ut
-          perferendis ex quaerat assumenda voluptatum aperiam repellendus
-          placeat voluptatibus saepe.
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="../images/bild5.png" alt="bild5" />
-        <figcaption>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ut
-          perferendis ex quaerat assumenda voluptatum aperiam repellendus
-          placeat voluptatibus saepe.
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="../images/bild2.png" alt="bild2" />
-        <figcaption>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ut
-          perferendis ex quaerat assumenda voluptatum aperiam repellendus
-          placeat voluptatibus saepe.
-        </figcaption>
-      </figure>
+
+    <main>
+      <h1>Ange ditt bokningsID:</h1>
+      <div>
+        <label for="bookingid">
+          <input
+            type="text"
+            id="bookingid"
+            placeholder="682d0aa353c31b166e2b2c12"
+          />
+        </label>
+        <button id="search">Kolla upp</button>
+      </div>
+      <div class="bookings-container"></div>
     </main>
     <footer>
       <p>© 2025 Tottes Tattoo.</p>
