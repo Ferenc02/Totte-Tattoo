@@ -1,5 +1,5 @@
-import Consultation from '../models/Consultation.mjs';
-import AppError from '../models/AppError.mjs';
+import Consultation from "../models/Consultation.mjs";
+import AppError from "../models/AppError.mjs";
 
 export default class ConsultationRepository {
   async getAll() {
@@ -18,10 +18,12 @@ export default class ConsultationRepository {
   }
 
   async add(consultation) {
-    const { firstName, lastName, email, number, message } = JSON.parse(consultation.body.consultation);
-    console.log('CONSULTATION: ', firstName, lastName, email);
+    const { firstName, lastName, email, number, message } = JSON.parse(
+      consultation.body.consultation
+    );
+    console.log("CONSULTATION: ", firstName, lastName, email);
 
-    const images = [...consultation.files].map(file => file.filename);
+    const images = [...consultation.files].map((file) => file.filename);
 
     const result = await Consultation.create({
       firstName,

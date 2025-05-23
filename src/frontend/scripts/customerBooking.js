@@ -4,19 +4,26 @@ import { bookingCard, bookingRemoved } from "./dom.js";
 const main = document.querySelector("main");
 const btn = main.querySelector("#search");
 const input = main.querySelector("#bookingid");
+const bookingsContainer = main.querySelector(".bookings-container");
 
 let id;
 
 const handleClick = async (e) => {
+  if (input.value === "") {
+    return alert("Fyll i bokningsnummer!");
+  }
+
   const response = await getCustomerBooking(input.value);
-  console.log(response);
   if (!response) return alert("Ingen bokning hittad!");
   if (response.success) {
     const card = bookingCard(response.data);
     id = response.data._id;
-    main.lastChild.remove();
-    main.appendChild(card);
+    try {
+      bookingsContainer.lastChild.remove();
+    } catch (error) {}
+    bookingsContainer.appendChild(card);
     const deleteBtn = document.querySelector("#cancel-booking");
+
     deleteBtn.addEventListener("click", handleRemove);
   }
 };

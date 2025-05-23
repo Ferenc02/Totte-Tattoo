@@ -4,6 +4,14 @@
 
   --navbar-background-color: #f8f9fb;
   --navbar-text-color: #333;
+
+  --c-theme-primary: #008ffd;
+  --c-theme-primary-accent: #cbe8ff;
+  --c-bg-primary: #d6dae0;
+  --c-bg-secondary: #eaebec;
+  --c-bg-tertiary: #fdfdfd;
+  --c-text-primary: #242424;
+  --c-text-secondary: #999fa6;
 }
 
 body {
@@ -164,76 +172,6 @@ footer p:nth-child(2) {
   width: fit-content;
 }
 
-.check-booking {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  flex-wrap: wrap;
-  align-items: center;
-  background-color: rgb(36, 193, 36);
-
-  gap: 1rem;
-
-  div {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    input {
-      width: 400px;
-      outline: 2px solid black;
-    }
-    button {
-      align-self: center;
-      background-color: #007bff; /* Blå färg */
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      outline: 2px solid rgba(0, 0, 0, 0.375);
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  }
-
-  .booking-card {
-    background-color: rgba(255, 255, 255, 0.604);
-    border-radius: 4px;
-    padding: 1rem;
-    h2 {
-      text-align: center;
-      background-color: #863a3a8d;
-      padding: 1rem;
-      border-radius: 12px;
-    }
-    p {
-      outline: 1px solid black;
-      padding: 0.5rem;
-      background-color: white;
-      font-weight: bold;
-      border-radius: 2px;
-    }
-  }
-}
-
-.booking-removed {
-  background-color: rgba(255, 255, 255, 0.599);
-  padding: 2rem;
-  border-radius: 2px;
-  font-size: 1.2rem;
-  .check {
-    color: green;
-  }
-  #countdown {
-    font-style: italic;
-    font-weight: bolder;
-  }
-}
 /* Homepage */
 .welcome-text {
   font-size: 2rem;
@@ -357,6 +295,93 @@ article figure figcaption {
   text-align: center;
 }
 
+/* Search Booking page stuff */
+
+.search-booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.search-booking {
+  width: 100%;
+  background-color: var(--c-bg-tertiary);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.search-booking .booking-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--c-bg-tertiary);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* Default look for input */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.input-group input {
+  padding: 0.5rem;
+  border: 1px solid var(--c-bg-secondary);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: var(--c-theme-primary);
+}
+.input-group input::placeholder {
+  color: var(--c-text-secondary);
+}
+.input-group input:hover {
+  border-color: var(--c-theme-primary-accent);
+}
+.input-group textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--c-bg-secondary);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--c-theme-primary);
+}
+.input-group select {
+  padding: 0.5rem;
+  border: 1px solid var(--c-bg-secondary);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+.input-group select:focus {
+  outline: none;
+  border-color: var(--c-theme-primary);
+}
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 /* Mobile stuff */
 
 @media (max-width: 1024px) {

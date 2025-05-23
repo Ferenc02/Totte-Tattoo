@@ -83,18 +83,22 @@
     </header>
 
     <main>
-      <h1>Ange ditt bokningsID:</h1>
-      <div>
-        <label for="bookingid">
-          <input
-            type="text"
-            id="bookingid"
-            placeholder="682d0aa353c31b166e2b2c12"
-          />
-        </label>
-        <button id="search">Kolla upp</button>
-      </div>
-      <div class="bookings-container"></div>
+      <h1 class="bookings-header">Ange ditt bokningsID:</h1>
+      <section class="search-booking-container">
+        <div class="search-booking">
+          <div class="input-group">
+            <label for="bookingid">bokningsID:</label>
+            <input
+              type="text"
+              id="bookingid"
+              placeholder="682d0aa353c31b166e2b2c12"
+              class="input-field"
+            />
+          </div>
+          <div class="bookings-container"></div>
+          <button id="search" class="button">Kolla upp</button>
+        </div>
+      </section>
     </main>
     <footer>
       <p>© 2025 Tottes Tattoo.</p>
