@@ -1,4 +1,4 @@
-import { addBooking, deleteBooking } from './bookingService.js';
+import { addBooking, deleteBooking, getBookings } from './bookingService.js';
 import { bookingDone, bookingRemoved } from './dom.js';
 
 const form = document.querySelector('#form-booking');
@@ -6,8 +6,9 @@ const container = document.querySelector('.booking-container');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
-const initApp = () => {
-	console.log(form);
+const initApp = async () => {
+	const freeSlots = await getBookings();
+	console.log(freeSlots);
 };
 
 const handleSubmit = async (e) => {

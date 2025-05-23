@@ -2,12 +2,17 @@ const URL = 'http://localhost:3001/api/v1/booking';
 
 export const getBookings = async () => {
 	try {
-		const response = await fetch(URL);
-		if (response.ok) {
+		const response = await fetch(`${URL}/slots`, {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ year: '2025', month: '05' }),
+		});
+		console.log(response);
+		if (response.success) {
 			const data = await response.json();
 			//console.log(data);
 
-			return data;
+			return data.data;
 		}
 	} catch (error) {
 		console.log(error);
