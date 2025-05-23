@@ -6,10 +6,10 @@ This project is a group assignment aimed at demonstrating skills in teamwork, ba
 
 ## Features ✨
 
-- **Booking System**: Customers can view available time slots and book appointments during weekdays (09:00–18:00, excluding lunch break 12:00–13:00). 📅
+- **Booking System**: Customers can view available time slots and book appointments during weekdays (09:00–15:00, excluding lunch break 12:00–13:00). 📅
 - **File Upload**: Customers can submit tattoo design requests as attached files. 📎
-- **Customizable Appointments**: Default booking durations are 1–2 hours, but customers can request longer sessions. ⏳
-- **Artistic Design**: The website will reflect the studio's focus on fantasy-themed, highly detailed tattoos. 🖌️
+- **Appointments**: Default booking durations are 1–2 hours ⏳
+- **Artistic Design**: The website will reflect the studio's focus on highly detailed tattoos. 🖌️
 
 ## Installation Instructions 📦
 
@@ -19,7 +19,7 @@ This project is a group assignment aimed at demonstrating skills in teamwork, ba
 4. **Run the Project**: Use `npm run dev` to start both the web server and backend server.
 5. **Access the Website**: Open your web browser and go to `http://localhost:3000` to view the website.
 6. **Access the Backend**: The backend server will be running on `http://localhost:3001`.
-
+7. **MongoDB**: Ensure you have MongoDB running locally. The connection string is `mongodb://127.0.0.1:27017/db`. Create a database called "db" in your MongoDB instance.
 
 ## Technical Requirements 💻
 
@@ -29,27 +29,19 @@ This project is a group assignment aimed at demonstrating skills in teamwork, ba
 - Follows the **MVC design pattern**.
 - Uses **ES6 modules**.
 - Exposes a **REST API** for frontend integration.
+- Uses **MongoDB** for data storage.
+- Implements **Mongoose** for object data modeling.
 
 ### Frontend 🎨
 
-- Can be implemented using:
+- Implement with:
   - Vanilla JavaScript, HTML, and CSS.
-  - Or **React** for a more dynamic user experience.
 
 ## Development Workflow 🚀
 
 1. **Team Division**: Split the team into backend and frontend groups. 👥
 2. **Backend Development**: Create the REST API to handle booking logic, file uploads, and data management. 🔧
 3. **Frontend Development**: Build the user interface for booking appointments and submitting requests. 🖥️
-
-## Submission 📤
-
-- Submit the project as a **zip file** on itslearning.
-- Provide a **GitHub repository** link for the project. 🔗
-
-## Grading ✅
-
-This is a **pass/fail (G)** assignment.
 
 ## About Tottes Tattoo 🏞️
 
