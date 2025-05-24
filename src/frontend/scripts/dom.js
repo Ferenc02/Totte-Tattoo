@@ -1,5 +1,6 @@
 export const bookingDone = async (booking) => {
 	const container = document.querySelector('.booking-container');
+
 	const main = document.querySelector('main');
 	const { date, firstName, lastName, email, number, _id } = booking;
 
@@ -22,7 +23,7 @@ export const bookingDone = async (booking) => {
       <span class='span-id'>${_id}</span>
     </div>
   `;
-	container.innerHTML = html.replace(',', '');
+	container.innerHTML = html;
 	main.innerHTML = '';
 	main.appendChild(container);
 };

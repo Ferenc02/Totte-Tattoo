@@ -6,24 +6,13 @@
 		<link rel="stylesheet" href="../style/reset.css" />
 		<link rel="stylesheet" href="../style/style.css" />
 		<link rel="stylesheet" href="../style/bookings.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<!--		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Miltonian+Tattoo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet" />
+			rel="stylesheet" /> -->
 
 		<script type="module" src="../scripts/bookings.js" defer></script>
-
-		<!--<script defer>
-			function submitForm(event) {
-				event.preventDefault();
-
-				const formData = new FormData(event.target);
-				const data = Object.fromEntries(formData.entries());
-				console.log('Form submitted:', data);
-				event.target.reset();
-			}
-		</script>-->
 
 		<title>Tattiga Tottes Tattoo | Boka</title>
 	</head>
@@ -97,7 +86,10 @@
 		<main>
 			<h1 class="bookings-header">Boka Tid</h1>
 			<section class="booking-container">
-				<form class="booking-form" id="form-booking">
+				<form
+					class="booking-form"
+					id="form-booking"
+					enctype="multipart/form-data">
 					<div class="input-group">
 						<label for="name">Datum:</label>
 						<input type="date" id="date" name="date" />
@@ -118,7 +110,7 @@
 						<label for="firstName">förnamn:</label>
 						<input
 							type="text"
-							id="name"
+							id="firstName"
 							name="firstName"
 							placeholder="Totte" />
 					</div>
@@ -126,7 +118,7 @@
 						<label for="lastName">efternamn:</label>
 						<input
 							type="text"
-							id="name"
+							id="lastName"
 							name="lastName"
 							placeholder="Johansson" />
 					</div>
@@ -154,7 +146,8 @@
 							rows="4"></textarea>
 					</div>
 					<div class="input-group">
-						<input type="file" name="file" />
+						<label for="file"></label>
+						<input type="file" name="file" id="fileUpload" />
 					</div>
 
 					<div class="checkbox-group">
@@ -180,10 +173,6 @@
 						type="submit">
 						Boka
 					</button>
-					<!--<input
-						type="submit"
-						value="Boka Tid"
-						class="submit-button button block" />-->
 				</form>
 			</section>
 		</main>

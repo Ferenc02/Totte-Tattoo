@@ -11,6 +11,7 @@ const container = document.querySelector('.booking-container');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 const dateCalendar = document.querySelector('#date');
+const submitBtn = document.querySelector('#submitBtn');
 
 const initApp = async () => {
 	//allOpenSlots = await getOpenSlots();
@@ -37,16 +38,25 @@ const getSlots = async (e) => {
 const handleSubmit = async (e) => {
 	e.preventDefault();
 	const formData = new FormData(e.target);
-	const data = Object.fromEntries(formData.entries());
-	const response = await addBooking(formData);
-	//console.log(response.data._id);
-	//bookingDone(response.data);
 
-	//const removeBtn = main.querySelector('#remove-button');
-	//removeBtn.addEventListener('click', handleRemove);
+	try {
+		//const data = Object.fromEntries(formData.entries());
+		const response = await addBooking(formData);
+		console.log(response);
+		if (response && response.data) {
+			bookingDone(response.data);
+			const removeBtn = document.querySelector('#remove-button');
+			removeBtn && removeBtn.addEventListener('click', handleRemove);
+		} else {
+			console.log('Nat gick fel');
+		}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 const handleRemove = async (e) => {
+	e.preventDefault();
 	//const id = e.target
 	const id = e.target.closest('main').querySelector('.span-id').textContent;
 

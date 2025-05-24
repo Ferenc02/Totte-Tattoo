@@ -61,23 +61,26 @@ export default class BookingRepository {
 	}
 
 	async add(booking) {
-		const data = JSON.stringify(booking.body);
-		const { firstName, lastName, email, date, time, number, gdpr } = data;
-		console.log(JSON.stringify(booking.body));
+		const { firstName, lastName, email, date, time, phone, gdpr } =
+			booking.body;
 
 		const images = [...booking.files].map((file) => file.filename);
 
-		console.log(images, firstName);
-
-		return await Booking.create({
-			firstName,
-			lastName,
-			email,
-			date,
-			time,
-			number,
-			gdpr,
-		});
+		try {
+			const response = await Booking.create({
+				firstName,
+				lastName,
+				email,
+				date,
+				time,
+				number: phone,
+				gdpr,
+				images,
+			});
+			return response;
+		} catch (error) {
+			console.log(error);
+		}
 		//images,
 	}
 
