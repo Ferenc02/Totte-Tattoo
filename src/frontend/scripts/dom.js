@@ -43,7 +43,8 @@ export const bookingRemoved = () => {
 
 			if (cd.textContent <= 0) {
 				clearInterval(countDown);
-				window.location.href = 'http://localhost:5500/frontend/pages';
+				window.location.href =
+					'http://localhost:5500/src/frontend/pages';
 			}
 		}, 1000);
 	}, 0);

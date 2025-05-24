@@ -7,6 +7,7 @@ export const listAllBookings = catchErrorAsync(async (req, res) => {
 });
 
 export const addBooking = catchErrorAsync(async (req, res) => {
+	console.log('controller');
 	const booking = await new BookingRepository().add(req);
 	res.status(200).json({ success: true, data: booking });
 });
@@ -29,6 +30,6 @@ export const updateBooking = catchErrorAsync(async (req, res) => {
 });
 
 export const deleteBooking = catchErrorAsync(async (req, res) => {
-  await new BookingRepository().remove(req.params.id);
-  res.status(204).end();
+	await new BookingRepository().remove(req.params.id);
+	res.status(204).end();
 });

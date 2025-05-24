@@ -14,7 +14,7 @@ const bookingRouter = express.Router();
 bookingRouter
 	.route('/')
 	.get(listAllBookings)
-	.post(upload.array('file'), addBooking);
+	.post(upload.array('file'), () => console.log('routes'), addBooking);
 
 bookingRouter.route('/slots').get(listOpenTimeSlots);
 
