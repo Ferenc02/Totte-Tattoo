@@ -44,7 +44,7 @@ export const bookingRemoved = () => {
       if (cd.textContent <= 0) {
         clearInterval(countDown);
         // This will redirect to the main page after 5 seconds
-        window.location.href = "http://localhost:3000";
+        window.location.href = window.location.origin;
       }
     }, 1000);
   }, 0);
