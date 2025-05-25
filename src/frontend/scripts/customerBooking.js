@@ -9,6 +9,7 @@ const bookingsContainer = main.querySelector(".bookings-container");
 let id;
 
 const handleClick = async (e) => {
+  e.preventDefault();
   if (input.value === "") {
     return alert("Fyll i bokningsnummer!");
   }

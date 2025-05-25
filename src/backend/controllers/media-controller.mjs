@@ -7,10 +7,10 @@ export const getAllMedia = catchErrorAsync(async (req, res) => {
 });
 
 export const addMedia = catchErrorAsync(async (req, res) => {
-  const mediaFiles = req.files.map(file => ({
+  const mediaFiles = req.files.map((file) => ({
     fileName: file.filename,
     filePath: file.path,
-    fileType: file.mimetype
+    fileType: file.mimetype,
   }));
 
   const savedMedia = await new MediaRepository().create(mediaFiles);
