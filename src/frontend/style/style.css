@@ -319,13 +319,16 @@ article figure figcaption {
 .search-booking .booking-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
   background-color: var(--c-bg-tertiary);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   padding: 1rem;
   gap: 1rem;
+}
+.search-booking .booking-card button {
+  justify-self: end;
 }
 /* Admin page styling */
 

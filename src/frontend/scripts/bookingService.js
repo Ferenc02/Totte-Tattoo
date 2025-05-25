@@ -28,30 +28,15 @@ export const getOpenSlots = async (year, month) => {
 };
 
 export const addBooking = async (booking) => {
-	const { firstName, lastName, email, phone, message, gdpr, date, time } =
-		booking;
+	//console.log(booking);
 
-	try {
-		const response = await fetch(URL, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				firstName,
-				lastName,
-				email,
-				number: phone,
-				message,
-				gdpr,
-				date,
-				time,
-			}),
-		});
-		if (response.ok) {
-			const data = await response.json();
-			return data;
-		}
-	} catch (error) {
-		console.log(error);
+	const response = await fetch(URL, { method: 'POST', body: booking });
+	console.log(response);
+	const data = await response.json();
+	//console.log(data);
+	if (data) {
+		console.log(data);
+		return data;
 	}
 };
 

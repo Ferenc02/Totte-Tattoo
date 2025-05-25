@@ -68,14 +68,28 @@ export const bookingCard = (booking) => {
   div.appendChild(h2);
   let name = "";
   for (const key in booking) {
-    if (["_id", "__v", "images"].includes(key)) continue;
+    if (["_id", "__v"].includes(key)) continue;
     const p = document.createElement("p");
 
     if (key === "firstName" || key === "lastName") {
       name += booking[key] + " ";
       continue;
     }
-    p.appendChild(document.createTextNode(`${key}: ${booking[key]}`));
+    if (key !== "images") {
+      p.appendChild(document.createTextNode(`${key}: ${booking[key]}`));
+    } else {
+      p.appendChild(document.createTextNode(`Bilder: ${booking[key].length}`));
+      booking[key].forEach((image) => {
+        const img = document.createElement("img");
+        img.setAttribute("src", `/media/${image}`);
+        img.setAttribute("alt", "Bokningsbild");
+        img.width = 300;
+        img.height = 300;
+        img.classList.add("booking-image");
+        p.appendChild(img);
+      });
+    }
+
     div.appendChild(p);
   }
 
