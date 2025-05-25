@@ -28,7 +28,7 @@ It is built with Node.js, using express, MongoDB & Mongoose.
 - `DELETE /api/v1/booking/:id` - Delete specific booking
 - `PATCH /api/v1/booking/:id` - Update part of specific booking
 
-### Consultations (Same as bookings)
+### Consultations (Same as bookings) (Currently not used in the frontend)
 
 - `GET /api/v1/consultation` - Get all consultations
 - `POST /api/v1/consultation` - Create a new consultation
@@ -49,3 +49,9 @@ It is built with Node.js, using express, MongoDB & Mongoose.
 We decided to separate bookings and consultations into different endpoints to make a thorough and clear structure, and so more of us could practice creating endpoints.
 
 An alternative approach could have been to use a single booking model with a boolean flag for consultations, which would have simplified the backend structure since bookings an consultation share a lot of functionalities.
+
+## Note
+
+The consultation endpoints are not used in the frontend, but they are implemented for future use if needed. The frontend currently only uses the booking endpoints.
+
+The consultation endpoints are implemented in the same way as the booking endpoints, but without specifing dates and times, since consultations are not time-based in the same way as bookings.
